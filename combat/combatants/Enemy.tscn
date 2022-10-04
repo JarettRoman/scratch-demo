@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/ghost/ghost-1.png" type="Texture" id=1]
+[ext_resource path="res://combat/combatants/Combatant.gd" type="Script" id=2]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Ghost-1" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="HP" type="Label" parent="."]
+margin_left = -20.1994
+margin_top = -82.9565
+margin_right = 21.8006
+margin_bottom = -68.9565
+text = "100HP"

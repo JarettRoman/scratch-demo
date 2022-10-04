@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/bg-graveyard.png" type="Texture" id=1]
+[ext_resource path="res://assets/bg-moon.png" type="Texture" id=2]
+[ext_resource path="res://combat/Combat.gd" type="Script" id=3]
+[ext_resource path="res://combat/combatants/Hero.tscn" type="PackedScene" id=4]
+[ext_resource path="res://combat/combatants/Ghost.tscn" type="PackedScene" id=5]
+
+[node name="Combat" type="Node2D"]
+position = Vector2( 0, -67.0517 )
+script = ExtResource( 3 )
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2( 0, -216.208 )
+
+[node name="Bg-moon" type="Sprite" parent="Background"]
+position = Vector2( 0, 216.208 )
+scale = Vector2( 3.33268, 3.33268 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Bg-graveyard" type="Sprite" parent="Background"]
+position = Vector2( 0, 1.52588e-05 )
+scale = Vector2( 3.33268, 3.41555 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Combatants" type="Node2D" parent="."]
+position = Vector2( 0, 67 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Hero" parent="Combatants" instance=ExtResource( 4 )]
+position = Vector2( 399.951, 306.046 )
+is_ally = true
+
+[node name="Ghost" parent="Combatants" instance=ExtResource( 5 )]
+position = Vector2( 890.579, 306.046 )
+
+[node name="UI" type="Control" parent="."]
+margin_top = 67.0
+margin_right = 1280.0
+margin_bottom = 747.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 482.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
+margin_right = 1280.0
+margin_bottom = 198.0
+size_flags_stretch_ratio = 0.0
+custom_constants/separation = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/HBoxContainer"]
+margin_right = 615.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/HBoxContainer"]
+margin_left = 665.0
+margin_right = 1280.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="Attack" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+margin_right = 303.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+text = "Attack"
+
+[node name="Button2" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+margin_left = 313.0
+margin_right = 615.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+margin_top = 104.0
+margin_right = 303.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
+margin_left = 313.0
+margin_top = 104.0
+margin_right = 615.0
+margin_bottom = 198.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_up" from="UI/MarginContainer/HBoxContainer/GridContainer/Attack" to="." method="_on_Attack_button_up"]
