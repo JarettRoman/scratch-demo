@@ -99,4 +99,6 @@ margin_bottom = 198.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Node" type="Node" parent="."]
+
 [connection signal="button_up" from="UI/MarginContainer/HBoxContainer/GridContainer/Attack" to="." method="_on_Attack_button_up"]

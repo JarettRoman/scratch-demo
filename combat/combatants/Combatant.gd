@@ -1,13 +1,13 @@
 extends Node2D
 class_name Combatant
 
-onready var hp_label: Label = $HP
-onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
-onready var _animation_player: AnimationPlayer = $AnimationPlayer
-
 export var health: int = 100
 export var max_health: int = health
 export var is_ally: bool = false
+
+onready var hp_label: Label = $HP
+onready var _animated_sprite: AnimatedSprite = $AnimatedSprite
+onready var _animation_player: AnimationPlayer = $AnimationPlayer
 
 signal health_changed(health)
 signal health_depleted
@@ -25,8 +25,12 @@ func set_health(new_health: int) -> void:
 	hp_label.text = str(health) + "HP"
 	if health == 0:
 		emit_signal("health_depleted")
-		_animation_player.play("die")
-		yield(_animation_player, 'animation_finished')
-		queue_free()
+		die()
 		return
 	emit_signal("health_changed", health)
+
+
+func die() -> void:
+	_animation_player.play("die")
+	yield(_animation_player, "animation_finished")
+	queue_free()
