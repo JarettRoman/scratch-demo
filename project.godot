@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Combatant",
 "language": "GDScript",
 "path": "res://combat/combatants/Combatant.gd"
+}, {
+"base": "Node",
+"class": "TurnQueue",
+"language": "GDScript",
+"path": "res://combat/TurnQueue.gd"
 } ]
 _global_script_class_icons={
-"Combatant": ""
+"Combatant": "",
+"TurnQueue": ""
 }
 
 [application]
