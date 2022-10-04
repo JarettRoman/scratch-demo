@@ -18,7 +18,9 @@ animations = [ {
 health = 10
 
 [node name="AnimatedSprite" parent="." index="0"]
+scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
+animation = "idle"
 
 [node name="HP" parent="." index="1"]
 margin_top = -111.0

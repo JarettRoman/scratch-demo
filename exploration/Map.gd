@@ -6,4 +6,6 @@ func _ready():
 
 
 func _on_CombatStartButton_pressed() -> void:
-	get_tree().change_scene('res://combat/Combat.tscn')
+	var err = get_tree().change_scene('res://combat/Combat.tscn')
+	if err:
+		print(err)
