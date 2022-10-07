@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/hero-idle/hero-idle-1.png" type="Texture" id=1]
 [ext_resource path="res://assets/hero-attack/hero-attack-2.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/hero-idle/hero-idle-4.png" type="Texture" id=9]
 [ext_resource path="res://combat/combatants/Combatant.gd" type="Script" id=10]
 [ext_resource path="res://assets/hero-hurt/hero-hurt.png" type="Texture" id=11]
+[ext_resource path="res://combat/HealthBar.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -112,3 +113,15 @@ margin_bottom = -71.7902
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 2 )
 anims/die = SubResource( 3 )
+
+[node name="HealthBar" parent="." instance=ExtResource( 12 )]
+margin_left = -79.962
+margin_top = -118.0
+margin_right = 568.038
+margin_bottom = -19.0
+rect_scale = Vector2( 0.25, 0.25 )
+
+[connection signal="health_updated" from="." to="HealthBar" method="_on_Combatant_health_updated"]
+[connection signal="max_health_updated" from="." to="HealthBar" method="_on_Combatant_max_health_updated"]
+
+[editable path="HealthBar"]

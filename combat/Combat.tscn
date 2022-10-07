@@ -1,32 +1,36 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/bg-graveyard.png" type="Texture" id=1]
 [ext_resource path="res://assets/bg-moon.png" type="Texture" id=2]
 [ext_resource path="res://combat/Combat.gd" type="Script" id=3]
 [ext_resource path="res://combat/combatants/Hero.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/combatants/Ghost.tscn" type="PackedScene" id=5]
+[ext_resource path="res://combat/TurnQueue.gd" type="Script" id=6]
 
 [node name="Combat" type="Node2D"]
 position = Vector2( 0, -67.0517 )
 script = ExtResource( 3 )
 
+[node name="TurnQueue" type="Node" parent="."]
+script = ExtResource( 6 )
+
 [node name="Background" type="Node2D" parent="."]
 position = Vector2( 0, -216.208 )
 
 [node name="Bg-moon" type="Sprite" parent="Background"]
-position = Vector2( 0, 216.208 )
+position = Vector2( 0, 283.208 )
 scale = Vector2( 3.33268, 3.33268 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Bg-graveyard" type="Sprite" parent="Background"]
-position = Vector2( 0, 1.52588e-05 )
+position = Vector2( 0, 216.208 )
 scale = Vector2( 3.33268, 3.41555 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="Combatants" type="Node2D" parent="."]
-position = Vector2( 0, 67 )
+position = Vector2( 0, 94.4368 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -98,7 +102,5 @@ margin_right = 615.0
 margin_bottom = 198.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Node" type="Node" parent="."]
 
 [connection signal="button_up" from="UI/MarginContainer/HBoxContainer/GridContainer/Attack" to="." method="_on_Attack_button_up"]
