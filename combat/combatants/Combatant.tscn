@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/hero-idle/hero-idle-4.png" type="Texture" id=9]
 [ext_resource path="res://combat/combatants/Combatant.gd" type="Script" id=10]
 [ext_resource path="res://assets/hero-hurt/hero-hurt.png" type="Texture" id=11]
-[ext_resource path="res://combat/HealthBar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://combat/ui/HealthBar.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -106,6 +106,7 @@ frames = SubResource( 1 )
 animation = "idle"
 
 [node name="HP" type="Label" parent="."]
+visible = false
 margin_top = -85.7902
 margin_right = 40.0
 margin_bottom = -71.7902

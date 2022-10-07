@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="scratch-demo"
 run/main_scene="res://exploration/Map.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/icon.png"
 
 [display]
 
