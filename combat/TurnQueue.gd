@@ -12,12 +12,10 @@ enum TURN_STATE { ACTIVE, INACTIVE }
 # var b = "text"
 
 
+# Initializes turn queue with an array of combatants.
+# currently, this assumes the 
 func initialize(combatants: Array) -> void:
-	for combatant in combatants:
-		if queue.empty():
-			queue.append({combatant: TURN_STATE.ACTIVE})
-		else:
-			queue.append({combatant: TURN_STATE.INACTIVE})
+	queue.append_array(combatants)
 
 
 # Called when the node enters the scene tree for the first time.
