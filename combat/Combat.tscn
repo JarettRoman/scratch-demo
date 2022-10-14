@@ -6,7 +6,7 @@
 [ext_resource path="res://combat/combatants/Hero.tscn" type="PackedScene" id=4]
 [ext_resource path="res://combat/combatants/Ghost.tscn" type="PackedScene" id=5]
 [ext_resource path="res://combat/TurnQueue.gd" type="Script" id=6]
-[ext_resource path="res://combat/combatants/Combatant.gd" type="Script" id=7]
+[ext_resource path="res://interface/combat/UI.gd" type="Script" id=7]
 
 [node name="Combat" type="Node2D"]
 position = Vector2( 0, -67.0517 )
@@ -16,16 +16,16 @@ script = ExtResource( 3 )
 script = ExtResource( 6 )
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2( 0, -216.208 )
+position = Vector2( 0, -284.504 )
 
 [node name="Bg-moon" type="Sprite" parent="Background"]
-position = Vector2( 0, 283.208 )
+position = Vector2( 0, 284.504 )
 scale = Vector2( 3.33268, 3.33268 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Bg-graveyard" type="Sprite" parent="Background"]
-position = Vector2( 0, 216.208 )
+position = Vector2( 0, 68.7895 )
 scale = Vector2( 3.33268, 3.41555 )
 texture = ExtResource( 1 )
 centered = false
@@ -38,71 +38,62 @@ __meta__ = {
 
 [node name="Hero" parent="Combatants" instance=ExtResource( 4 )]
 position = Vector2( 399.951, 306.046 )
+health = 50
+max_health = 50
 is_ally = true
 
 [node name="Ghost" parent="Combatants" instance=ExtResource( 5 )]
 position = Vector2( 890.579, 306.046 )
-script = ExtResource( 7 )
 
 [node name="UI" type="Control" parent="."]
 margin_top = 67.0
 margin_right = 1280.0
 margin_bottom = 747.0
+script = ExtResource( 7 )
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
+[node name="Buttons" type="MarginContainer" parent="UI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 482.0
+margin_left = 440.0
+margin_top = 500.0
+margin_right = -440.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer"]
-margin_right = 1280.0
-margin_bottom = 198.0
-size_flags_stretch_ratio = 0.0
-custom_constants/separation = 50
-
-[node name="PanelContainer" type="PanelContainer" parent="UI/MarginContainer/HBoxContainer"]
-margin_right = 615.0
-margin_bottom = 198.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/HBoxContainer"]
-margin_left = 665.0
-margin_right = 1280.0
-margin_bottom = 198.0
+[node name="GridContainer" type="GridContainer" parent="UI/Buttons"]
+margin_right = 400.0
+margin_bottom = 180.0
 size_flags_horizontal = 3
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 2
 
-[node name="Attack" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
-margin_right = 303.0
-margin_bottom = 94.0
+[node name="Attack" type="Button" parent="UI/Buttons/GridContainer"]
+margin_right = 195.0
+margin_bottom = 85.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.0
 text = "Attack"
 
-[node name="Button2" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
-margin_left = 313.0
-margin_right = 615.0
-margin_bottom = 94.0
+[node name="Button2" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 205.0
+margin_right = 400.0
+margin_bottom = 85.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button3" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
-margin_top = 104.0
-margin_right = 303.0
-margin_bottom = 198.0
+[node name="Button3" type="Button" parent="UI/Buttons/GridContainer"]
+margin_top = 95.0
+margin_right = 195.0
+margin_bottom = 180.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button4" type="Button" parent="UI/MarginContainer/HBoxContainer/GridContainer"]
-margin_left = 313.0
-margin_top = 104.0
-margin_right = 615.0
-margin_bottom = 198.0
+[node name="Button4" type="Button" parent="UI/Buttons/GridContainer"]
+margin_left = 205.0
+margin_top = 95.0
+margin_right = 400.0
+margin_bottom = 180.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="button_up" from="UI/MarginContainer/HBoxContainer/GridContainer/Attack" to="." method="_on_Attack_button_up"]
+[connection signal="button_up" from="UI/Buttons/GridContainer/Attack" to="UI" method="_on_Attack_button_up"]

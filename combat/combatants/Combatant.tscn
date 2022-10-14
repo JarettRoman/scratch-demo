@@ -11,7 +11,7 @@
 [ext_resource path="res://assets/hero-idle/hero-idle-4.png" type="Texture" id=9]
 [ext_resource path="res://combat/combatants/Combatant.gd" type="Script" id=10]
 [ext_resource path="res://assets/hero-hurt/hero-hurt.png" type="Texture" id=11]
-[ext_resource path="res://combat/ui/HealthBar.tscn" type="PackedScene" id=12]
+[ext_resource path="res://interface/combat/HealthBar.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
